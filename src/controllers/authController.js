@@ -2,7 +2,6 @@ const authService = require('../services/authService');
 
 exports.signup = async (req, res) => {
   const { username, password } = req.body;
-  console.log('요청왔니');
 
   try {
     const token = await authService.signup(username, password);
