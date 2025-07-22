@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       underscored: true,
     }
   );
-
+  ////////////
   RaidGroup.associate = function (models) {
     // OneToMany: RaidGroup → RaidCharacters
     RaidGroup.hasMany(models.RaidCharacters, {
