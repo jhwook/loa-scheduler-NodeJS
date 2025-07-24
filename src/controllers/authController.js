@@ -23,3 +23,16 @@ exports.signin = async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 };
+
+exports.setApiKey = async (req, res) => {
+  try {
+    const {
+      user,
+      body: { apiKey },
+    } = req;
+    await authService.setApiKey(user, apiKey);
+    res.status(200).json({ message: 'API 키가 설정되었습니다.' });
+  } catch (err) {
+    console.error('❌ 에러 발생:', err.message);
+  }
+};

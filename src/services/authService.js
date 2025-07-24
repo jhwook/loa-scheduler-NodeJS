@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const { User } = require('../models');
 const { createToken } = require('../utils/jwt');
 
-const signup = async (username, password) => {
+exports.signup = async (username, password) => {
   const existingUser = await User.findOne({ where: { username } });
   if (existingUser) {
     throw new Error('이미 사용 중인 아이디입니다.');
@@ -14,7 +14,7 @@ const signup = async (username, password) => {
   return token;
 };
 
-const signin = async (username, password) => {
+exports.signin = async (username, password) => {
   const user = await User.findOne({ where: { username } });
   if (!user) {
     throw new Error('가입되지 않은 사용자입니다.');
@@ -29,7 +29,10 @@ const signin = async (username, password) => {
   return token;
 };
 
-module.exports = {
-  signup,
-  signin,
+exports.setApiKey = async (user, apiKey) => {
+  if (!apiKey) {
+    throw new Error('API 키를 입력해주세요.');
+  }
+  user.api_key = apiKey;
+  await user.save();
 };
