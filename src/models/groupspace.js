@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       tableName: 'group_spaces',
       createdAt: 'created_at',
-      updatedAt: 'modified_at',
+      updatedAt: 'updated_at',
       underscored: true,
     }
   );

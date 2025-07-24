@@ -30,6 +30,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
 
+      api_key: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+
       userStatus: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
@@ -44,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       tableName: 'users',
       createdAt: 'created_at',
-      updatedAt: 'modified_at',
+      updatedAt: 'updated_at',
       underscored: true,
     }
   );

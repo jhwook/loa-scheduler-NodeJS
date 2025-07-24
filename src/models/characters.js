@@ -24,7 +24,12 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
 
-      exp_level: {
+      combatPower: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+
+      expLevel: {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
@@ -34,16 +39,26 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
 
+      characterImage: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+
       userId: {
         type: DataTypes.BIGINT,
         allowNull: true,
         field: 'user_id',
       },
+
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
     },
     {
       tableName: 'characters',
       createdAt: 'created_at',
-      updatedAt: 'modified_at',
+      updatedAt: 'updated_at',
       underscored: true, // snake_case 컬럼명
     }
   );

@@ -52,4 +52,14 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+// DB 동기화
+sequelize
+  .sync({ alter: true })
+  .then(() => {
+    console.log('✅ DB schema synced successfully.');
+  })
+  .catch((err) => {
+    console.error('❌ DB sync error:', err);
+  });
+
 module.exports = db;

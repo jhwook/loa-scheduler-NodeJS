@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       tableName: 'raid_groups',
       createdAt: 'created_at',
-      updatedAt: 'modified_at',
+      updatedAt: 'updated_at',
       underscored: true,
     }
   );

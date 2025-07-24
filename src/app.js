@@ -10,7 +10,12 @@ app.use(cors());
 app.use(express.json());
 
 const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
+const characterRoutes = require('./routes/characterRoutes');
+
 app.use(authRoutes);
+app.use(userRoutes);
+app.use(characterRoutes);
 
 app.get('/', async (req, res) => {
   try {
