@@ -3,7 +3,6 @@ module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     'User',
     {
-      // 자동 증가 ID
       id: {
         type: DataTypes.BIGINT,
         primaryKey: true,
