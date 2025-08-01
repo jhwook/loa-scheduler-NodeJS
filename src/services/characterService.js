@@ -8,7 +8,6 @@ exports.getAllCharacters = async (data) => {
 
   const characters = await getCharacters(characterName, apiKey);
 
-  // 서버 필터링
   const filtered = characters.filter(
     (character) => character.ServerName === serverName
   );
@@ -26,16 +25,15 @@ exports.saveCharacters = async (data) => {
     )
   );
 
-  // 캐릭터 데이터 저장 로직 추가
   const characterEntities = charactersData.map((char) => ({
     nickName: char.CharacterName,
     className: char.CharacterClassName,
     level: char.ItemAvgLevel.toString(),
-    expLevel: char.CharacterLevel, // 정수 레벨로 저장
+    expLevel: char.CharacterLevel,
     serverName: char.ServerName,
     userId: user.id,
     characterImage: char.CharacterImage,
-    combatPower: char.CombatPower.toString(), // 문자열로 저장
+    combatPower: char.CombatPower.toString(),
   }));
 
   await Characters.bulkCreate(characterEntities);
