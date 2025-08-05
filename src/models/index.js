@@ -11,7 +11,7 @@ require('dotenv').config(); // .env 로드
 
 const db = {};
 
-// Sequelize 설정을 .env 기반으로 직접 작성
+// Sequelize 설정
 const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
@@ -20,7 +20,7 @@ const sequelize = new Sequelize(
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     dialect: 'postgres',
-    logging: false, // 콘솔에 SQL 출력 여부
+    logging: false,
   }
 );
 
